@@ -9,7 +9,7 @@ The documents, scripts, and project files contained in this folder will provide 
 generate four total 3D world map models using the rayshader 3rd party package @ https://www.rayshader.com/ 
 (two showing refugee populations by country in 2019, two showing predicted climate mortality in 2030). My code will: 
 1) install required packages; 2) import, clean, and join three datasets (refugee population 2019, climate mortality 2030, world map); 
-3) render ggplots and 3D models using the rayshader package. Optional debugging information is given to support knitting in case of error.
+3) render ggplots and 3D models using the rayshader package. 
 
 ## Dependencies
 
@@ -55,7 +55,7 @@ available here: https://daraint.org/climate-vulnerability-monitor/climate-vulner
 2. WORLD BANKAPI_SM.POP.REFG_DS2_en_excel_v2_1743495.xls: Contains World Bank data on global refugee population by country 
 from 1960-2019, available here: https://data.worldbank.org/indicator/SM.POP.REFG
 
-3. WorldMap.csv: Contains coordinate values that render world map ggplot, available in R ggmap package 
+3. WorldMap.csv: Contains coordinate values that render world map ggplot, available in R 
 
 #### Results/
 
