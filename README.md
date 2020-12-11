@@ -66,7 +66,7 @@ from 1960-2019, available here: https://data.worldbank.org/indicator/SM.POP.REFG
 
 ## More Information
 
-1. This code does not knit to PDF and will require further debugging. Knit to HTML instead! Please see the 06_knittingerror_help script file (opening and closing rgl device) for the debugging approach suggested by the developer for this process. Credit to Rochelle for quickly finding this solution.
+1. This code does not knit to PDF. Knit to HTML instead! Please see the 06_knittingerror_help script file (opening and closing rgl device) for the debugging approach suggested by the developer for this process (opening and closing the rgl device). Credit to Rochelle for quickly finding the HTML knit solution.
 
 2. Developer tools and knitting may require RStudio to be run in administrator mode. Please see comments at beginning 
 of 01_installpckgs script file.
