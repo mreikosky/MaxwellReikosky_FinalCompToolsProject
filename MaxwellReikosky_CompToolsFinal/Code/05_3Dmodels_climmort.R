@@ -5,6 +5,12 @@
 ## 1. Climate Mortality 2030 by Country 3D Model
 
 ```{r}
+# closing rgl device
+rgl.close()
+
+# opening rgl device per knitting debug instructions
+rgl.open()
+
 # plotting climate mortality in 2030 by country 
 climmort_gg <- ggplot(Refclim_mapdf, aes(long, lat, group = group, fill = Climate_mortality)) + 
   
@@ -42,6 +48,12 @@ plot_gg(climmort_gg, width = 5, height = 5, raytrace = FALSE, preview = TRUE) +
 ## 2. Climate Mortality 2030 by Country 3D Model (sans India)
 
 ```{r}
+# closing rgl device
+rgl.close()
+
+# opening rgl device per knitting debug instructions
+rgl.open()
+
 # filtering out India to calibrate for its disproportionate mortality
 climmort_sans <- Refclim_mapdf %>%
   filter(region != "India")

@@ -3,14 +3,18 @@ title: "Refugee Pop. 2019 - Climate Morality 2030 3D World Maps"
 author: "Maxwell Reikosky"
 date: "12/10/2020"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 ```{r setup, include=T}
 # allowing r chunks to knit without printing 3D models that cause error
-knitr::opts_chunk$set(eval = F)
+knitr::opts_chunk$set(eval = T)
+```
+
+```{r}
+options(tinytex.verbose = TRUE)
 ```
 
 ```{r message=FALSE, warning=FALSE}
@@ -140,6 +144,9 @@ Refclim_mapdf$Climate_mortality <- as.numeric(Refclim_mapdf$Climate_mortality)
 ## 6. Refugee Population by Country 2019 3D Model
 
 ```{r}
+# opening rgl device per knitting debug instructions
+rgl.open()
+
 # plotting refugee population by country
 refpop_gg <- ggplot(Refugee_map, aes(long, lat, group = group, fill = year_2019)) + 
   
@@ -168,15 +175,19 @@ plot_gg(refpop_gg, width = 5, height = 5, raytrace = FALSE, preview = TRUE) +
 # allowing process launched from R to read input files before execution resumes
   Sys.sleep(0.2) + 
   
-# constructing snapshot of final 3D model
+# constructing snapshot of final 3D model 
   render_snapshot(clear = TRUE) 
 ```
-
-!["Refugee Population by Country 2019"](Results/refpop.png)
 
 ## 7. Refugee Population by Country 2019 3D Model (sans Turkey & Jordan)
 
 ```{r}
+# closing rgl device
+rgl.close()
+
+# opening rgl device per knitting debug instructions
+rgl.open()
+
 # filtering Turkey and Jordan to highlight other standout countries
 refpop_sans <- Refugee_map %>%
   filter(region != "Turkey",
@@ -215,13 +226,15 @@ plot_gg(refpop_sansgg, width = 5, height = 5, multicore = TRUE, scale = 250,
   render_snapshot(clear = TRUE) 
 ```
 
-\newpage
-!["Refugee Population by Country 2019 (sans Turkey & Jordan)"](Results/refpop_sansturjor.png)
-
-\newpage
 ## 8. Climate Mortality 2030 by Country 3D Model
 
 ```{r}
+# closing rgl device
+rgl.close()
+
+# opening rgl device per knitting debug instructions
+rgl.open()
+
 # plotting climate mortality in 2030 by country 
 climmort_gg <- ggplot(Refclim_mapdf, aes(long, lat, group = group, fill = Climate_mortality)) + 
 
@@ -256,13 +269,15 @@ plot_gg(climmort_gg, width = 5, height = 5, raytrace = FALSE, preview = TRUE) +
   render_snapshot(clear = TRUE) 
 ```
 
-\newpage
-!["Climate Mortality 2030 by Country"](Results/climmort.png)
-
-\newpage
 ## 9. Climate Mortality 2030 by Country 3D Model (sans India)
 
 ```{r}
+# closing rgl device
+rgl.close()
+
+# opening rgl device per knitting debug instructions
+rgl.open()
+
 # filtering out India to calibrate for its disproportionate mortality
 climmort_sans <- Refclim_mapdf %>%
   filter(region != "India")
@@ -299,5 +314,3 @@ plot_gg(climmort_sansgg, width = 5, height = 5, raytrace = FALSE, preview = TRUE
   render_snapshot(clear = TRUE)
 ```
 
-\newpage
-!["Climate Mortality 2030 by Country (sans India)"](Results/climmort_sansindia.png)

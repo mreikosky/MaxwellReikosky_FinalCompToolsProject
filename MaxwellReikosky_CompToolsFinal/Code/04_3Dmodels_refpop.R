@@ -5,6 +5,9 @@
 ## 1. Refugee Population by Country 2019 3D Model
 
 ```{r}
+# opening rgl device per knitting debug instructions
+rgl.open()
+
 # plotting refugee population by country
 refpop_gg <- ggplot(Refugee_map, aes(long, lat, group = group, fill = year_2019)) + 
   
@@ -33,7 +36,7 @@ plot_gg(refpop_gg, width = 5, height = 5, raytrace = FALSE, preview = TRUE) +
   # allowing process launched from R to read input files before execution resumes
   Sys.sleep(0.2) + 
   
-  # constructing snapshot of final 3D model
+  # constructing snapshot of final 3D model 
   render_snapshot(clear = TRUE) 
 ```
 
@@ -41,6 +44,12 @@ plot_gg(refpop_gg, width = 5, height = 5, raytrace = FALSE, preview = TRUE) +
 ## 2. Refugee Population by Country 2019 3D Model (sans Turkey & Jordan)
 
 ```{r}
+# closing rgl device
+rgl.close()
+
+# opening rgl device per knitting debug instructions
+rgl.open()
+
 # filtering Turkey and Jordan to highlight other standout countries
 refpop_sans <- Refugee_map %>%
   filter(region != "Turkey",
