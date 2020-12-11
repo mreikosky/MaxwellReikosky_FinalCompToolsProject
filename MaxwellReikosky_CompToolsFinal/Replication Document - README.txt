@@ -63,14 +63,12 @@ from 1960-2019, available here: https://data.worldbank.org/indicator/SM.POP.REFG
 
 ## More Information
 
-1. This code does not knit to PDF and will require further debugging. Knit to HTML instead! Please see the 06_knittingerror_help script file (opening and closing rgl device) for the debugging approach suggested by the developer for this process. 
+1. This code does not knit to PDF. Knit to HTML instead! Please see the 06_knittingerror_help script file (opening and closing rgl device) for the debugging approach suggested by the developer for this process. 
 Credit to Rochelle for quickly finding this solution.
 
 2. Developer tools and knitting may require RStudio to be run in administrator mode. Please see comments at beginning 
 of 01_installpckgs script file.
 
-3. Final project file includes additional code for inserting screenshot images of 3D models since knitting this models caused 
-LaTex error. Scripts in the "Code" folder do not include code for inserting these screenshotted images.
 
 
 
